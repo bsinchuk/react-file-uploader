@@ -1,16 +1,11 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
+
+import FileUploader from './containers/FileUploader/FileUploader';
 
 function App() {
-  const [status, setStatus] = useState('initial');
-  useEffect(() => {
-    fetch('/test')
-      .then(res => res.json())
-      .then(data => setStatus(data.status));
-  }, [])
-
   return (
     <div className="App">
-      {status}
+      <FileUploader />
     </div>
   );
 }
