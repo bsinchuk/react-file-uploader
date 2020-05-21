@@ -6,3 +6,39 @@
   align-items: center;
   justify-content: space-evenly;
 }
+
+.file-uploader__send {
+  width: 120px;
+  height: 40px;
+  padding: 0;
+  border: none;
+  border-radius: 5px;
+  background: #388e3c;
+  color: white;
+  font: inherit;
+}
+
+input[type="file"] {
+  display: none;
+}
+
+.file-uploader__choose {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 120px;
+  height: 40px;
+  background-color: #4db6ac;
+  border-radius: 5px;
+  color: white;
+}
+
+.file-uploader__send:hover,
+.file-uploader__choose:hover {
+  cursor: pointer;
+}
+
+.file-uploader__send:disabled {
+  background-color: grey;
+  cursor: default;
+}

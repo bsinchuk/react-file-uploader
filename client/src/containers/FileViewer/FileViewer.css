@@ -1,0 +1,74 @@
+.viewer {
+  display: flex;
+  flex-direction: column;
+}
+
+.viewer__row {
+  display: flex;
+  align-items: center;
+}
+
+.viewer__changer {
+  padding: none;
+  border: none;
+  width: 80px;
+  height: 30px;
+  border-radius: 5px;
+  background: #d1c4e9;
+  font: inherit;
+  align-self: center;
+}
+
+.viewer__row--error {
+  color: firebrick;
+}
+
+.viewer__cell {
+  margin: 0;
+  padding: 10px;
+  box-sizing: border-box;
+}
+
+.viewer__cell--head {
+  font-weight: bold;
+}
+
+.viewer__cell--body {
+  background-color: white;
+}
+
+.viewer__cell--name {
+  width: 33vw;
+}
+
+.viewer__cell--type {
+  width: 100px;
+}
+
+.viewer__cell--size {
+  width: 90px;
+}
+
+.viewer__remove {
+  padding: none;
+  border: none;
+  width: 30px;
+  height: 30px;
+  border-radius: 3px;
+  font-weight: bold;
+  font-size: 12px;
+  color: white;
+  background-color: rgb(129, 66, 66);
+}
+
+.viewer__remove:hover, 
+.viewer__changer:hover {
+  cursor: pointer;
+}
+
+.viewer__error-msg {
+  padding: 0px 0px 10px 10px;
+  margin: 0px;
+  color: darkred;
+  font-size: 12px;
+}
