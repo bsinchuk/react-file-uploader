@@ -1,5 +1,6 @@
 import React, {useState, useReducer, useEffect} from 'react';
 
+import FileViewer from '../FileViewer/FileViewer';
 import style from './FileUploader.module.css';
 import newId from '../../utils/newid';
 
@@ -84,23 +85,30 @@ const FileUploader = props => {
       .finally(dispatchFiles({type: 'DEFAULT_FILES'}));
   }
 
-  let filesJSX = null;
-  if (mainState.selected) {
-    filesJSX = files.map(e => {
-      return (<div key={e.id} onClick={event => deleteFileHandler(event, e.id)} >
-        {e.file.name}
-        {e.file.size}
-        {e.file.type}
-      </div>)
-    });
-  }
   return (
     <div className={style['file-uploader']}>
-      <input type="file" name="MyFiles" multiple onChange={selectFilesHandler} />
-      {filesJSX}
+      <label htmlFor="file-uploader" className={style['file-uploader__choose']}>
+        Select Files
+        <input 
+          type="file" 
+          id="file-uploader"
+          name="MyFiles"
+          multiple 
+          className={style['file-uploader__choose']}
+          onChange={selectFilesHandler} />
+      </label>
+      { mainState.selected ? 
+        <FileViewer 
+          files={files} 
+          clicked={deleteFileHandler} /> : 
+        null 
+      }
       { 
         mainState.selected ? 
-        <button disabled={!mainState.valid} onClick={saveFilesHandler}> Send </button> :
+        <button 
+          disabled={!mainState.valid} 
+          onClick={saveFilesHandler}
+          className={style['file-uploader__send']}> Send </button> :
         null
       }
     </div>
